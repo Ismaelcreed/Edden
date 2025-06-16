@@ -1,0 +1,145 @@
+@import url("../../../../../styles/variables.scss");
+
+.Hero_2-container {
+    font-family: "Poppins", sans-serif;
+  
+    .firstContainer {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: url("../../../../../assets/svg/oooscillate.svg")
+    }
+    .section.section-1 {
+      position: relative;
+      height: 100vh;
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: url("../../../../../assets/svg/shape-2.svg");
+      background-position-x: center;
+      background-size: 80rem;
+      background-repeat: no-repeat;
+      color: var(--whiteColor);
+      z-index: 0;
+    
+      .section-content {
+        position: relative;
+        z-index: 1;
+        max-width: 800px;
+        padding: 2rem;
+    
+        h2 {
+          font-size: 4rem;
+          margin-bottom: 1rem;
+        }
+    
+        .subtitle {
+          font-size: 2.8rem;
+          margin-bottom: 0.5rem;
+          font-weight: 500;
+          color: var(--primaryColor);
+        }
+    
+        .description {
+          margin : 0 auto;
+          width : 80%;
+          font-size: 1rem;
+          line-height: 1.6;
+          color: var(--primaryColor);
+        }
+      }
+    }
+    
+     
+    .lastContainer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: url("../../../../../assets/svg/bbburst.svg");
+    }
+  
+    .scroll-container {
+      width: 400vw; // 4 panels
+      height: 100vh;
+      display: flex;
+      flex-wrap: nowrap;
+    }
+  
+    .section {
+      width: 100vw;
+      height: 100vh;
+      flex-shrink: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+
+      .text-section2{
+        width : 50%;
+        height : 60%;
+        background: url("../../../../../assets/svg/shape-3.svg");
+        background-position: center;
+        background-size: cover;
+        background-repeat: repeat;
+        align-items: center;
+        justify-content: center;
+        margin: 0 auto;
+        text-align: center;
+        padding: 8rem 2rem;
+        h2 {
+          font-size: 3.2rem;
+          font-weight : bold;
+          color: var(--primaryColor);
+          text-align: center;
+        }
+        
+        span{
+          font-size: 18px;
+          color: var(--primaryColor);
+          margin-top: 10px;
+      }
+      strong{
+        font-size: 18px;
+          color: var(--darkwarningColor);
+      }
+      }
+  
+    }
+  
+    
+     
+      .section section-2 {
+        display: flex;
+        flex : 1;
+        background: var(--greyColor);
+        flex-direction: column;
+        justify-content: space-between;
+        position: relative;
+        min-height: 100vh;
+        padding: 2rem;
+        gap : 2rem;
+
+       
+        img{
+          justify-content: flex-end;
+        }
+      
+    }
+    .section-3 {
+      display: grid;
+      grid-template-columns: 2fr;
+      text-align: center;
+      h2{
+        color: var(--primaryColor);
+      }
+    }
+    .section-4 {
+      background: transparent;
+    }
+  }
+  

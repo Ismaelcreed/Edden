@@ -1,0 +1,92 @@
+@use "../../../styles/abstracts/mixin" as mix;
+@use "../../../styles/variables" as vars;
+
+.stats-card {
+  @include mix.card;
+  transition: all 0.3s ease;
+  background: var(--primaryColor);
+  color: var(--whiteColor);
+
+  &__content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+  }
+
+  &__icon {
+    font-size: 24px;
+    transition: all 0.3s ease;
+  }
+
+  &__value {
+    font-size: 24px;
+    font-weight: 700;
+    margin-bottom: 5px;
+    transition: all 0.3s ease;
+  }
+
+  &__title {
+    font-size: 14px;
+    opacity: 0.7;
+    font-weight: 500;
+    transition: all 0.3s ease;
+  }
+
+  // États de survol
+  &:hover {
+    background-color: var(--primaryColor);
+    
+    .stats-card__value,
+    .stats-card__title,
+    .stats-card__icon {
+      color: var(--whiteColor);
+    }
+  }
+
+  // Variantes de couleur
+  &--yellow {
+    background-color: var(--primaryColor);
+    color: var(--whiteColor);
+
+    &:hover {
+      background: var(--primaryColor);
+      color: var(--whiteColor);
+    }
+      &::after {
+          content: "";
+          position: absolute;
+          bottom: -8px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 370px;
+          height: 4px;
+          background-color: var(--thirdColor);
+          opacity: 0.3;
+        }
+  }
+
+  &--gray {
+    background: var(--primaryColor);
+    color: var(--whiteColor);
+
+    &:hover {
+      color: var(--whiteColor);
+    }
+      &::after {
+          content: "";
+          position: absolute;
+          bottom: -8px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 370px;
+          height: 4px;
+          background-color: var(--thirdColor);
+          opacity: 0.3;
+        }
+  }
+}
+
+// Animation de comptage
+.countup-wrapper {
+  display: inline-block;
+}

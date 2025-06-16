@@ -1,0 +1,173 @@
+@import url('../../styles/variables.scss');
+
+.speed-dial {
+  position: fixed;
+  bottom: 5rem;
+  right: 2rem;
+  z-index: 1000;
+  font-family: "Poppins", sans-serif;
+
+  .speed-dial-btn {
+    background-color: var(--whiteColor);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    font-size: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(5, 86, 133, 0.4);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+
+  .speed-dial-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    margin-bottom: 1rem;
+    align-items: center;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: all 0.3s ease;
+  }
+
+  // Afficher les actions au hover
+  &:hover .speed-dial-actions {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+
+  .action-btn {
+    background-color: white;
+    color: var(--secondaryColor);
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    transition: all 0.2s;
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--thirdColor);
+      color: var(--whiteColor);
+    }
+    &:hover .icon{
+       transform: rotate(15deg);
+    }
+  }
+ .language-container {
+  position: relative;
+
+  .language-options {
+    position: absolute;
+    left: -65px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    z-index: 999;
+  }
+
+  .flag-btn {
+    background-color: white;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    padding: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+    cursor: pointer;
+    transition: all 0.2s;
+
+    img {
+      width: 28px;
+      height: 28px;
+      border-radius: 50%;
+    }
+
+    &:hover {
+      background-color: var(--thirdColor);
+      transform: scale(1.1);
+    }
+  }
+}
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.4); // fond sombre semi-transparent
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+.modal-content {
+  background-color: var(--whiteColor);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  z-index: 2100;
+
+  h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+  }
+
+  p {
+    margin-bottom: 1rem;
+    color: var(--darkFontColor);
+  }
+
+  .close-btn {
+    margin-top: 1.5rem;
+    font-family: "Poppins", sans-serif;
+    background-color: var(--primaryColor);
+    color: var(--whiteColor);
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+
+    &:hover {
+      background-color: var(--primaryColor, 10%);
+    }
+  }
+
+  .rating-stars {
+    margin: 1.5rem 0;
+    
+    .fa-star {
+      color: var(--primaryColor);
+      margin: 0 0.2rem;
+      cursor: pointer;
+      transition: all 0.2s;
+      
+      &:hover {
+        transform: scale(1.1);
+      }
+    }
+  }
+}
+
+
+}

@@ -1,0 +1,55 @@
+// _mixins.scss
+@use "./borderRadius" as radius;
+@use "./spacing" as spacing;
+
+$shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1) !default;
+$mobile: 768px !default;
+$tablet: 1024px !default;
+
+@mixin card {
+  background: var(--whiteColor);
+  border-radius: radius.$border-radius-lg;
+  box-shadow: $shadow-md;
+  padding: spacing.$spacing-xl;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+  }
+}
+
+@mixin button-base {
+  border: none;
+  border-radius: radius.$border-radius-sm;
+  cursor: pointer;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+@mixin mobile {
+  @media (max-width: $mobile) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media (max-width: $tablet) {
+    @content;
+  }
+}
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+@mixin grid($columns, $gap: spacing.$spacing-lg) {
+  display: grid;
+  grid-template-columns: repeat($columns, 1fr);
+  gap: $gap;
+}

@@ -1,0 +1,78 @@
+@use "../../../styles/abstracts/mixin" as mix;
+@use "../../../styles/abstracts/spacing" as spacing;
+@use "../../../styles/abstracts/borderRadius" as radius;
+
+.sidebar {
+  width: 70px;
+  background: var(--whiteColor);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: spacing.$spacing-lg 0;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  min-height: 100vh;
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing);
+  }
+
+  &__item {
+    width: 50px;
+    height: 50px;
+    @include mix.flex-center;
+    border-radius: radius.$border-radius-md;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    color: var(--disabledColor);
+
+    &:hover {
+      background: var(--greyColor);
+      color: var(--darkFontColor);
+    }
+
+    &--active {
+      background: var(--primaryColor);
+      color: var(--whiteColor);
+
+      &:hover {
+        background: var(--primaryColor);
+        color: var(--whiteColor);
+      }
+    }
+  }
+
+  &__bottom {
+    margin-top: auto;
+  }
+
+  &__avatar {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: var(--primaryColor);
+    color: var(--whiteColor);
+    @include mix.flex-center;
+    font-size: 16px;
+  }
+
+  // Responsive
+  @include mix.mobile {
+    width: 100%;
+    height: auto;
+    flex-direction: row;
+    justify-content: center;
+    padding: 15px 0;
+    min-height: auto;
+
+    &__nav {
+      flex-direction: row;
+    }
+
+    &__bottom {
+      margin-top: 0;
+      margin-left: auto;
+    }
+  }
+}

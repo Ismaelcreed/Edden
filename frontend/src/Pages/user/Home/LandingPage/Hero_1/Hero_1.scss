@@ -1,0 +1,77 @@
+@import url("../../../../../styles/variables.scss");
+@import url("../../../../../styles/font.scss");
+
+.Hero_1 {
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    width: 100vw;
+    background: url("../../../../../assets/svg/shape-6.svg");
+    background-position-x: center;
+    background-size: 80rem;
+    background-repeat: no-repeat;
+
+    .Hero1-content {
+        display: grid;
+        gap: 2rem;
+        justify-content: center;
+        text-align: center;
+        h1 {
+            font-family: "Poppins" , sans-serif;
+            font-size: 60px;
+            font-weight : 900 ;
+            letter-spacing: 5px;
+            font-weight: bold;
+            cursor: pointer;
+            color: var(--primaryColor);
+            z-index: 1000;
+            height: 80px;
+        }
+
+        span {
+            color: var(--thirdColor);
+            font-size: 18px;
+            font-family: "Poppins";
+        }
+        .speech{
+            display: flex;
+            text-align: left;
+            justify-content: center;
+            font-style: italic;
+            font-weight: 900;
+            font-size: 16px;
+        }
+        &:hover {
+            cursor: pointer;
+        }
+        button {
+            width: 10rem;
+            display: flex;
+            justify-content: center;
+            margin: 0 auto;
+            background: linear-gradient(90deg ,var(--secondaryColor), var(--thirdColor) 100%);;
+            color: var(--whiteColor);
+            padding: 1rem 2rem;
+            border: 1px solid;
+            outline: 1.5px solid transparent;
+            border-radius: 1.5rem;
+            cursor: pointer;
+            font-family: "Poppins";
+            transition: all 0.08s ease;
+            width: 10rem;
+            animation: animate 1s infinite ease alternate;
+        }
+        @keyframes animate {
+            to{
+              transform: translateY(20px);
+            }
+          }
+       button :hover{
+                color: #ffff;
+                background: linear-gradient(90deg , var(--secondaryColor) , var(--thirdColor)100%);
+                outline: 1.5px solid transparent;
+        }
+
+    }
+
+}

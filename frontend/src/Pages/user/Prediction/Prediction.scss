@@ -1,0 +1,66 @@
+.prediction-container {
+  margin-top: -5rem;
+  display: flex;
+  justify-content: space-between;
+  width: 90vw;
+  gap: 3rem;
+  height: 100vh;
+
+  .content-1 {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  .tldraw-wrapper {
+      width: 100%;
+      flex: 1;
+      border: 1px solid #ccc;
+      margin: 10px;
+      overflow: hidden;
+}
+
+.button-container {
+  display: flex;
+  justify-content: center;
+  padding: 20px;
+  background-color: #f8f8f8;
+}
+
+.predict-button {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 30px;
+  background: linear-gradient(90deg, #3017e8, #6a3fdc);
+  color: white;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-family: "Poppins",sans-serif;
+}
+
+.predict-button:hover {
+  transform: scale(1.05);
+}
+}
+.content-2{
+  display: flex;
+  flex-direction: column;
+  gap : 2px;
+  img{
+    width: 4rem;
+  }
+  .loader{
+    margin-top: 2rem;
+    text-align: center;
+  }
+  .Skeleton{
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+
+  }
+}
+}
+
+

@@ -1,0 +1,19 @@
+@import url(./styles/font.scss);
+@import url(./styles/variables.scss);
+@import url(./styles/abstracts/mixin.scss);
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html, body, a, button {
+  cursor: none !important;
+}
+
+#root {
+  margin: 0 auto;
+  font-family: "Moana",sans-serif;
+  background-color: var(--backgroundColor);
+  overflow: hidden;
+}

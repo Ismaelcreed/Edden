@@ -1,0 +1,15 @@
+.cursor-container {
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  will-change: transform;
+}
+
+.floating-cursor {
+  width: 80px;
+  height: 80px;
+  opacity: 0.8;
+  filter: drop-shadow(0 4px 8px rgba(15, 50, 145, 0.2));
+  pointer-events: none;
+  user-select: none;
+}

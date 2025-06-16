@@ -1,0 +1,71 @@
+@use "../../../styles/abstracts/spacing" as spacing;
+@use "../../../styles/abstracts/borderRadius" as radius;
+@use "../../../styles/abstracts/mixin" as mix;
+
+.transaction-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: spacing.$spacing-sm 0;
+  border-bottom: 1px solid rgba(var(--greyColor), 0.7);
+  transition: all 0.3s ease;
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &:hover {
+    background: rgba(var(--greyColor), 0.3);
+    border-radius: radius.$border-radius-sm;
+    margin: 0 -#{spacing.$spacing-sm};
+    padding: spacing.$spacing-sm spacing.$spacing-sm;
+  }
+
+  &__left {
+    display: flex;
+    flex-direction: column;
+    gap: spacing.$spacing-xs;
+  }
+
+  &__date {
+    font-size: 12px;
+    color: var(--disabledColor);
+    font-weight: 500;
+  }
+
+  &__description {
+    font-size: 14px;
+    color: var(--darkFontColor);
+    font-weight: 500;
+  }
+
+  &__amount {
+    font-weight: 600;
+    font-size: 14px;
+    min-width: 80px;
+    text-align: right;
+
+    &--positive {
+      color: var(--succesColor);
+    }
+
+    &--negative {
+      color: var(--dangerColor);
+    }
+
+    &--neutral {
+      color: var(--darkFontColor);
+    }
+  }
+
+  @include mix.mobile {
+    &__amount {
+      min-width: 60px;
+      font-size: 12px;
+    }
+
+    &__description {
+      font-size: 13px;
+    }
+  }
+}

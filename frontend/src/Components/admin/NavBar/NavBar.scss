@@ -1,0 +1,94 @@
+@use "../../../styles/abstracts/mixin.scss" as mix;
+@use "../../../styles/abstracts/spacing.scss" as spacing;
+@use "../../../styles/abstracts/borderRadius.scss" as radius;
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: spacing.$spacing-lg spacing.$spacing-xxl;
+  background: var(--whiteColor);
+  border-bottom: 1px solid var(--greyColor);
+
+  &__left {
+    display: flex;
+    align-items: center;
+  }
+
+  &__logo {
+    display: flex;
+    align-items: center;
+    gap: spacing.$spacing-sm;
+  }
+
+  &__logo-icon {
+    font-size: 24px;
+    color: var(--darkFontColor);
+  }
+
+  &__title {
+    font-size: 24px;
+    font-weight: 600;
+    margin: 0;
+    color: var(--darkFontColor);
+  }
+
+  &__right {
+    display: flex;
+    align-items: center;
+    gap: spacing.$spacing-lg;
+  }
+
+  &__balance {
+    background: var(--primaryColor);
+    color: var(--whiteColor);
+    padding: spacing.$spacing-sm spacing.$spacing-lg;
+    border-radius: radius.$border-radius-sm;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  &__balance-label {
+    font-size: 14px;
+    opacity: 0.8;
+  }
+
+  &__balance-amount {
+    font-weight: 600;
+    font-size: 16px;
+  }
+
+  &__profile {
+    display: flex;
+    align-items: center;
+    font-size: 18px;
+    gap: 15px;
+    background: none;
+    padding: spacing.$spacing-xs 15px;
+    border-radius: radius.$border-radius-sm;
+    color: var(--primaryColor);
+  }
+
+  &__notification,
+  &__avatar {
+    font-size: 24px;
+  }
+
+  &__menu {
+    @include mix.button-base;
+    background: none;
+    font-size: 16px;
+    color: var(--darkFontColor);
+  }
+
+  @include mix.mobile {
+    flex-direction: column;
+    gap: 15px;
+    align-items: stretch;
+
+    &__right {
+      justify-content: space-between;
+    }
+  }
+}
