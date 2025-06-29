@@ -182,16 +182,18 @@ const Dashboard = () => {
           <RecentTransactions />
           <div className="dashboard__charts">
             <div className="chart-container">
-              <Chart type="line" data={lineData} options={{
-                ...lineOptions,
-                maintainAspectRatio: false
-              }} />
+              <Chart
+                type="line"
+                data={lineData}
+                options={{ ...lineOptions, maintainAspectRatio: false }}
+              />
             </div>
             <div className="chart-container">
-              <Chart type="doughnut" data={doughnutData} options={{
-                ...doughnutOptions,
-                maintainAspectRatio: false
-              }} />
+              <Chart
+                type="doughnut"
+                data={doughnutData}
+                options={{ ...doughnutOptions, maintainAspectRatio: false }}
+              />
             </div>
           </div>
         </div>

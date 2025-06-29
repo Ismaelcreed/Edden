@@ -1,3 +1,4 @@
+@import url("../../../styles/variables.scss");
 .prediction-container {
   margin-top: -5rem;
   display: flex;
@@ -13,7 +14,7 @@
   .tldraw-wrapper {
       width: 100%;
       flex: 1;
-      border: 1px solid #ccc;
+      border: none;
       margin: 10px;
       overflow: hidden;
 }
@@ -21,16 +22,14 @@
 .button-container {
   display: flex;
   justify-content: center;
-  padding: 20px;
-  background-color: #f8f8f8;
 }
 
 .predict-button {
   padding: 12px 24px;
   border: none;
   border-radius: 30px;
-  background: linear-gradient(90deg, #3017e8, #6a3fdc);
-  color: white;
+  background: linear-gradient(90deg, var(--primaryColor), var(--secondaryColor));
+  color: var(--whiteColor);
   font-size: 1rem;
   cursor: pointer;
   transition: all 0.3s ease;

@@ -1,0 +1,582 @@
+@use '../styles/abstracts/spacing.scss';
+@use '../styles/abstracts/borderRadius.scss' as radius;
+@use '../styles/abstracts/mixin.scss';
+
+.authContainer {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  min-height: 100vh;
+  background: var(--backgroundColor);
+  font-family: "Poppins", sans-serif;
+  
+  @include mixin.tablet {
+    grid-template-columns: 1fr;
+  }
+  
+  @include mixin.mobile {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+}
+
+.illustrationSection {
+  background: linear-gradient(135deg, #667eea 0%, #13caf8 100%);
+  color: white;
+  padding: spacing.$spacing-xl;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start; // Changé de 'center' à 'flex-start'
+  align-items: center;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  min-height: 500px; // Ajout d'une hauteur minimale
+  
+  // Effet de particules animées
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: 
+      radial-gradient(circle at 25% 25%, rgba(255,255,255,0.1) 2px, transparent 2px),
+      radial-gradient(circle at 75% 75%, rgba(255,255,255,0.05) 1px, transparent 1px);
+    background-size: 100px 100px, 60px 60px;
+    animation: float 20s ease-in-out infinite alternate;
+  }
+  
+  @include mixin.tablet {
+    padding: spacing.$spacing-lg;
+  }
+  
+  @include mixin.mobile {
+    display: none;
+  }
+}
+
+@keyframes float {
+  0% { transform: translateY(0px) rotate(0deg); }
+  100% { transform: translateY(-20px) rotate(5deg); }
+}
+
+.illustrationContent {
+  max-width: 85%;
+  z-index: 2;
+  animation: fadeInUp 1s ease-out;
+  margin-top: 2rem; // Changé de 'bottom' à 'margin-top'
+  padding-top: 1rem; // Ajout pour plus d'espace en haut
+  
+  h2 {
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    margin-bottom: spacing.$spacing-sm;
+    font-weight: 700;
+    line-height: 1.2;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  }
+  
+  p {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    margin-bottom: spacing.$spacing-lg; // Réduit de xl à lg
+    opacity: 0.95;
+    line-height: 1.7;
+    text-shadow: 0 1px 5px rgba(0,0,0,0.1);
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.illustrationImage {
+  width: 100%;
+  max-width: 380px;
+  margin: spacing.$spacing-lg auto;
+  transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+  filter: drop-shadow(0 10px 25px rgba(0,0,0,0.15));
+  
+  &:hover {
+    transform: scale(1.05) translateY(-5px);
+    filter: drop-shadow(0 15px 35px rgba(0,0,0,0.2));
+  }
+}
+
+.authSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: spacing.$spacing-md;
+  background: var(--whiteColor);
+  position: relative;
+  
+  @include mixin.tablet {
+    padding: spacing.$spacing-lg;
+  }
+  
+  @include mixin.mobile {
+    padding: spacing.$spacing-md spacing.$spacing-sm;
+    min-height: 100vh;
+  }
+}
+
+.authForm {
+  width: 100%;
+  max-width: 450px;
+  padding: spacing.$spacing-xl;
+  border-radius: radius.$border-radius-lg;
+  box-shadow: 
+    0 20px 40px rgba(0,0,0,0.2),
+    0 1px 3px rgba(0,0,0,0.08);
+  backdrop-filter: blur(10px);
+  animation: slideInRight 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  @include mixin.tablet {
+    max-width: 400px;
+    padding: spacing.$spacing-lg;
+  }
+  
+  @include mixin.mobile {
+    padding: spacing.$spacing-md;
+    max-width: 100%;
+    margin: 0;
+    box-shadow: none;
+    background: var(--whiteColor);
+    border-radius: 0;
+  }
+}
+
+@keyframes slideInRight {
+  from {
+    opacity: 0;
+    transform: translateX(50px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.title {
+  font-family: var(--TitleFont);
+  color: var(--primaryColor);
+  text-align: center;
+  margin-bottom: 2.5rem;
+  font-size: clamp(1.75rem, 4vw, 2.2rem);
+  font-weight: 700;
+  position: relative;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primaryColor), var(--secondaryColor));
+    border-radius: 2px;
+  }
+  
+  @include mixin.mobile {
+    margin-bottom: 2rem;
+  }
+}
+
+.inputGroup {
+  position: relative;
+  margin-bottom: 1.5rem;
+  
+  &:last-of-type {
+    margin-bottom: 2rem;
+  }
+}
+
+.formInput {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  background: var(--fillInput);
+  border: 2px solid var(--greyColor);
+  border-radius: radius.$border-radius-md;
+  font-size: 1rem;
+  color: var(--darkFontColor);
+  outline: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: inherit;
+  
+  &:focus {
+    border-color: var(--secondaryColor);
+    box-shadow: 0 0 0 4px rgba(var(--secondaryColor-rgb), 0.1);
+    transform: translateY(-2px);
+    background: white;
+  }
+  
+  &:hover:not(:focus) {
+    border-color: var(--primaryColor);
+  }
+  
+  @include mixin.mobile {
+    padding: 0.875rem 1rem;
+    font-size: 0.95rem;
+  }
+}
+
+.formLabel {
+  position: absolute;
+  left: 1.25rem;
+  top: 1rem;
+  color: var(--lightFontColor);
+  pointer-events: none;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-size: 1rem;
+  font-weight: 500;
+  
+  &.floating {
+    top: -0.75rem;
+    left: 1rem;
+    font-size: 0.85rem;
+    background: white;
+    padding: 0 0.5rem;
+    color: var(--secondaryColor);
+    font-weight: 600;
+  }
+  
+  @include mixin.mobile {
+    left: 1rem;
+    font-size: 0.95rem;
+    
+    &.floating {
+      font-size: 0.8rem;
+    }
+  }
+}
+
+.selectGroup {
+  margin-bottom: 1.5rem;
+  
+  label {
+    display: block;
+    margin-bottom: 0.75rem;
+    font-size: 0.95rem;
+    color: var(--darkFontColor);
+    font-weight: 600;
+  }
+}
+
+.selectInput {
+  width: 100%;
+  padding: 1rem 1.25rem;
+  background: var(--fillInput);
+  border: 2px solid var(--greyColor);
+  border-radius: radius.$border-radius-md;
+  font-size: 1rem;
+  color: var(--darkFontColor);
+  outline: none;
+  appearance: none;
+  font-family: inherit;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  
+  // Flèche personnalisée
+  background-image: 
+    linear-gradient(45deg, transparent 50%, var(--primaryColor) 50%),
+    linear-gradient(135deg, var(--primaryColor) 50%, transparent 50%);
+  background-position: 
+    calc(100% - 20px) calc(1em + 2px),
+    calc(100% - 15px) calc(1em + 2px);
+  background-size: 5px 5px, 5px 5px;
+  background-repeat: no-repeat;
+  
+  &:focus {
+    border-color: var(--secondaryColor);
+    box-shadow: 0 0 0 4px rgba(var(--secondaryColor-rgb), 0.1);
+    background-color: white;
+  }
+  
+  &:hover:not(:focus) {
+    border-color: var(--primaryColor);
+  }
+  
+  @include mixin.mobile {
+    padding: 0.875rem 1rem;
+    font-size: 0.95rem;
+  }
+}
+
+.profile-upload-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 2rem;
+}
+
+.profileUpload {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  border: 3px dashed var(--greyColor);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  background: linear-gradient(135deg, var(--fillInput) 0%, rgba(255,255,255,0.8) 100%);
+  
+  &:hover {
+    border-color: var(--primaryColor);
+    transform: scale(1.05);
+    box-shadow: 0 10px 25px rgba(var(--primaryColor-rgb), 0.15);
+  }
+  
+  &.dragging {
+    border-color: var(--secondaryColor);
+    background: var(--hoverColor);
+    transform: scale(1.1);
+  }
+  
+  @include mixin.mobile {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+.uploadContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 1rem;
+  color: var(--lightFontColor);
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+.userIcon {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: var(--primaryColor);
+  opacity: 0.7;
+  
+  @include mixin.mobile {
+    font-size: 1.75rem;
+  }
+}
+
+.uploadButton {
+  position: absolute;
+  bottom: -100%;
+  left: 0;
+  width: 100%;
+  background: linear-gradient(135deg, var(--primaryColor), var(--secondaryColor));
+  color: white;
+  border: none;
+  padding: 0.75rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: inherit;
+  font-weight: 600;
+  
+  &:hover {
+    background: linear-gradient(135deg, var(--secondaryColor), var(--thirdColor));
+  }
+}
+
+.profileUpload:hover .uploadButton {
+  bottom: 0;
+}
+
+.submitButton {
+  width: 100%;
+  padding: 1.25rem;
+  background: linear-gradient(135deg, var(--primaryColor), var(--secondaryColor));
+  color: white;
+  border: none;
+  border-radius: radius.$border-radius-md;
+  font-size: 1.1rem;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: inherit;
+  box-shadow: 0 8px 20px rgba(var(--primaryColor-rgb), 0.3);
+  
+  &:hover {
+    background: linear-gradient(135deg, var(--secondaryColor), var(--thirdColor));
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(var(--primaryColor-rgb), 0.4);
+  }
+  
+  &:active {
+    transform: translateY(-1px);
+  }
+  
+  @include mixin.mobile {
+    padding: 1rem;
+    font-size: 1rem;
+    margin-top: 1.25rem;
+  }
+}
+
+.arrowIcon {
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  
+  .submitButton:hover & {
+    transform: translateX(5px);
+  }
+}
+
+.captchaContainer {
+  margin:  0;
+  display: flex;
+  justify-content: center;
+  
+  // Style pour reCAPTCHA
+  .g-recaptcha {
+    transform: scale(0.9);
+    transform-origin: center;
+    
+    @include mixin.mobile {
+      transform: scale(0.8);
+    }
+  }
+}
+
+.additional-links {
+  margin-top: 2rem;
+  text-align: center;
+  font-size: 0.95rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--greyColor);
+  
+  a {
+    color: var(--primaryColor);
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    position: relative;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -2px;
+      left: 0;
+      width: 0;
+      height: 2px;
+      background: var(--secondaryColor);
+      transition: width 0.3s ease;
+    }
+    
+    &:hover {
+      color: var(--secondaryColor);
+      
+      &::after {
+        width: 100%;
+      }
+    }
+  }
+  
+  @include mixin.mobile {
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+  }
+}
+
+// Animations d'entrée pour les éléments
+.inputGroup {
+  animation: fadeInUp 0.6s ease-out;
+  
+  @for $i from 1 through 10 {
+    &:nth-child(#{$i}) {
+      animation-delay: #{$i * 0.1}s;
+    }
+  }
+}
+
+// États de chargement
+.submitButton {
+  &.loading {
+    position: relative;
+    color: transparent;
+    
+    &::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 20px;
+      height: 20px;
+      margin: -10px 0 0 -10px;
+      border: 2px solid transparent;
+      border-top: 2px solid white;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+    }
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+// Media queries améliorées
+@media (max-width: 1200px) {
+  .authContainer {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 968px) {
+  .authContainer {
+    grid-template-columns: 1fr;
+  }
+  
+  .illustrationSection {
+    min-height: 40vh;
+    padding: spacing.$spacing-lg;
+  }
+}
+
+@media (max-width: 480px) {
+  .authForm {
+    padding: spacing.$spacing-sm;
+  }
+  
+  .title {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+  }
+  
+  .inputGroup {
+    margin-bottom: 1.25rem;
+  }
+}
+
+// Mode sombre (si applicable)
+@media (prefers-color-scheme: dark) {
+  .authForm {
+    background: var(--whiteColor);
+  }
+  
+  .formLabel.floating {
+    background: var(--whiteColor);
+  }
+}

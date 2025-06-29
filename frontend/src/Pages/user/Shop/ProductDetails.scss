@@ -1,0 +1,144 @@
+@import url("../../../styles/variables.scss");
+
+.product-details-container {
+  max-width: 1200px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  font-family: "Poppins",sans-serif;
+}
+
+.product-display {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.product-image-column {
+  .main-product-image {
+    width: 80%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  }
+  
+  .product-meta {
+    margin-top: 1.5rem;
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    color: var(--primaryColor);
+    font-size: 0.9rem;
+    
+    svg {
+      margin-right: 0.3rem;
+    }
+  }
+}
+
+.product-info-column {
+  .product-title {
+    font-size: 2.2rem;
+    margin-bottom: 1rem;
+    color: var(--primaryColor);
+  }
+  
+  .product-description {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--primaryColor);
+    margin-bottom: 2rem;
+  }
+  
+  .product-pricing {
+    margin: 2rem 0;
+    font-size: 1.5rem;
+    
+    .current-price {
+      font-weight: bold;
+      color: var(--darkFontColor);
+    }
+    
+    .original-price {
+      text-decoration: line-through;
+      color: #999;
+      margin-left: 1rem;
+    }
+    
+   
+  }
+}
+
+.payment-section {
+  background: var(--whiteColor);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+.guarantees {
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 2rem;
+  flex-wrap: wrap;
+  
+  .guarantee {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    color: #555;
+    
+    svg {
+      color: var(--secondaryColor);
+    }
+  }
+}
+
+// Styles pour le formulaire Stripe
+.stripe-form {
+  .form-group {
+    margin-bottom: 1.5rem;
+    
+    label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: 500;
+    }
+  }
+  
+  .pay-button {
+    width: 100%;
+    padding: 1rem;
+    background: linear-gradient(135deg, var(--secondaryColor) 0%, var(--primaryColor) 100%);
+    color: var(--whiteColor);
+    border: none;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+    
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+    }
+    
+    &:disabled {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+  }
+  
+  .error-message {
+    color: #ff4d4d;
+    margin: 1rem 0;
+  }
+  
+  .success-message {
+    color: #4CAF50;
+    margin: 1rem 0;
+  }
+}

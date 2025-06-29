@@ -27,12 +27,11 @@ const Hero_1 = () => {
                        Bienvenue dans Edden
                     </GradientText>
                 </h1>
-                <span>" Edden, la plateforme de rêve pour vous illuminez<br />
-                    chaque jours qui passe ". <br />
-                    Dans un monde de plus en plus connecté,
-                    où la technologie façonne notre quotidien,
+                <span> "Edden, un portail sacré entre les cieux et la mer, où Poséidon veille depuis son trône d'écume.<br />
+          Explorez les mystères de l'Olympe, traversez les jardins d'Élysée,<br />
+          et laissez la magie divine guider vos pas."
                 </span>
-                <button onClick={handleClick}>Découvrir</button>
+                <button onClick={handleClick}>Plonger</button>
 
                  <span className="speech">"Reveillez en vous la passion technologique et vos talents"</span>
             </div>

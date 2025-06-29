@@ -27,7 +27,7 @@ const NavBar = () => {
     { path: "live", label: "Live", icon: LuCamera },
     { path: "#", label: "Solution", icon: LuSettings },
     { path: "prediction", label: "Prédire", icon: LuActivity },
-    { path: "#", label: "Espace achat", icon: LuShoppingCart },
+    { path: "shop-edden", label: "Espace achat", icon: LuShoppingCart },
 ];
 const menuItemVariants = {
     hidden: { opacity: 0, y: 20 },

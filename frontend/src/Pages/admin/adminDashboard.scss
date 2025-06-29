@@ -1,34 +1,88 @@
 // adminDashboard.scss
 @import url("../../styles/variables.scss");
+
 .dashboard {
   display: flex;
   min-height: 100vh;
   background-color: var(--backgroundColor);
-  font-family: "Poppins",sans-serif;
+  font-family: "Poppins", sans-serif;
 
-  .dashboard__charts {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2rem;
-  margin-bottom: 2rem;
-  height: 400px;
-  width: 100px;
-
-  @media (max-width: 1200px) {
-    grid-template-columns: 1fr;
+  &__main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    margin-left: 70px; // Largeur de la sidebar
+    padding: 1rem; // Ajouté pour l'espacement
+    overflow-x: hidden; // Empêche le débordement horizontal
   }
-}
 
-.chart-container {
-  background: var(--whiteColor);
-  border-radius: 8px;
-  padding: 1.5rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
-  height: 350px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+  &__welcome {
+    padding: 2rem;
+    background-color: var(--whiteColor);
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+
+    &-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    h2 {
+      color: var(--primaryColor);
+      font-size: 1.5rem;
+      margin: 0;
+    }
+  }
+
+  &__stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  &__projects {
+    background-color: var(--whiteColor);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+
+    &-list {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 1rem;
+      margin-top: 1.5rem;
+    }
+  }
+
+  &__charts {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    width: 100%;
+
+    @media (max-width: 1200px) {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  .chart-container {
+    background: var(--whiteColor);
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    height: 400px; // Taille fixe ou utilisez min-height
+    width: 100%;
+    position: relative; // Important pour Chart.js
+  }
 
   &__main {
     flex: 1;

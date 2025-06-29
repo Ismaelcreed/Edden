@@ -1,5 +1,5 @@
 import React from 'react'
-import { Tldraw } from 'tldraw'
+import { Tldraw ,TldrawEditor, useEditor} from 'tldraw'
 import 'tldraw/tldraw.css'
 import "./Prediction.scss"
 import Skeleton from '../../../Components/Skeleton/Skeleton'
@@ -11,6 +11,8 @@ quantum.register();
 function Prediction() {
     const [synth, setSynth] = React.useState(null);
   const [utterance, setUtterance] = React.useState(null);
+  const editor = useEditor();
+  const [shape , setShape] = React.useState([])
 
    React.useEffect(() => {
     if ('speechSynthesis' in window) {
@@ -43,24 +45,45 @@ function Prediction() {
       }
     };
   }, [synth]);
+
+  const handlePredict = () =>{
+    const currentShapes = editor.getShape;
+    setShape(currentShapes);
+    console.log("Forme dessiné :" , currentShapes)
+  }
   return (
       <div className="prediction-container">
       <div className="content-1">
       <div className="tldraw-wrapper">
-       <Tldraw persistenceKey="whiteboard-storage" />
+       <TldrawEditor persistenceKey="whiteboard-storage" />
       </div>
       <div className="button-container">
-        <button className="predict-button">Prédire</button>
+        <button className="predict-button" onClick={handlePredict}>Prédire</button>
       </div>
       </div>
       <div className="content-2">
         <img src={ia} alt="Artificial intelligence logo" />
-        <div className="Skeleton">
+
+        {
+          shape.length > 0 && (
+            <div>
+              <h2>Forme dessiner : </h2>
+              {
+                shape.map((shape , index) =>(
+                  <div key={index}>
+                    <p>Type  : {shape.type}</p>
+                  </div>
+                ))
+              }
+            </div>
+          )
+        }
+        {/* <div className="Skeleton">
            <Skeleton/>
         </div>
          <div className="loader">
             <l-quantum size="70" speed="3.75" color="#047185" />
-         </div>
+         </div> */}
          
       </div>
     </div>
